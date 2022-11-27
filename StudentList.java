@@ -2,17 +2,32 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 public class StudentList {
+	static	Constants constants = new Constants();
+// get input from textfile 
+	public static BufferedReader getBufferedReader () {
+				try 
+				{
+					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(constants.inputfile)));
+					return bufferedReader;
+				}
+				catch(FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+				return null;
+	}
 	public static void main(String[] args) {
+		
 
 
-		if(args[0].equals("a")) {
+		if(args[0].equals(constants.inputfile1 )) {
 			if (args.length != 1)
 			{
 				System.out.println("please enter valid Argument");
 			}
 			System.out.println("Loading data ...");			
 			try {
-					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
+					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(constants.inputfile))); 
 					String readString = bufferedReader.readLine();
 					String i[] = readString.split(",");			
 					for(String j : i)
@@ -24,34 +39,20 @@ public class StudentList {
 
 			   System.out.println("Data Loaded.");
 		}
-		else if(args[0].equals("r"))
+		else if(args[0].equals(inputfile2 ))
 		if (args.length != 1)
 		{
 			System.out.println("please enter valid Argument");
 		}
 		
-		 else if(args[0].contains("+"))
+		 else if(args[0].contains(constants.inputfile3))
 
-		 if (args.length != 1)
-		 {
-			 System.out.println("please enter valid Argument");
-		 }
 		{
-				System.out.println("Loading data ...");			
-			try {
-					BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("students.txt", true));
-					String inpuString = args[0].substring(1);
-					Date d = new Date();
-					String df = "dd/mm/yyyy-hh:mm:ss a";
-					DateFormat dateFormat = new SimpleDateFormat(df);
-					String fd= dateFormat.format(d);
-					bufferedWriter.write(", "+t+"\nList last updated on "+fd);
-					bufferedWriter.close();
-			} catch (Exception e){}
+			
 							
 				System.out.println("Data Loaded.");	
 		}
-		 if(args[0].contains("?")) 
+		 if(args[0].contains(constants.inputfile4 )) 
 		{
 			System.out.println("Loading data ...");			
 			try {
@@ -69,7 +70,7 @@ public class StudentList {
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");				
 		}
-		else if(args[0].contains("c")) 
+		else if(args[0].contains(constants.inputfile4)) 
 		if (args.length != 1)
 		{
 			System.out.println("please enter valid Argument");
