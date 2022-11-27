@@ -4,8 +4,12 @@ import java.util.*;
 public class StudentList {
 	public static void main(String[] args) {
 
-//		Check arguments
+
 		if(args[0].equals("a")) {
+			if (args.length != 1)
+			{
+				System.out.println("please enter valid Argument");
+			}
 			System.out.println("Loading data ...");			
 			try {
 					BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
@@ -20,22 +24,18 @@ public class StudentList {
 
 			   System.out.println("Data Loaded.");
 		}
-		else if(args[0].equals("r")) 
+		else if(args[0].equals("r"))
+		if (args.length != 1)
 		{
-			System.out.println("Loading data ...");			
-			try {
-					BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 
-					String r = s.readLine();
-					System.out.println(r);
-					String i[] = r.split(",");	
-					Random x = new Random();
-					int y = x.nextInt();
-					System.out.println(i[y]);
-			    }
-				catch (Exception e){} 
-				System.out.println("Data Loaded.");			
+			System.out.println("please enter valid Argument");
 		}
-		else if(args[0].contains("+"))
+		
+		 else if(args[0].contains("+"))
+
+		 if (args.length != 1)
+		 {
+			 System.out.println("please enter valid Argument");
+		 }
 		{
 				System.out.println("Loading data ...");			
 			try {
@@ -51,7 +51,7 @@ public class StudentList {
 							
 				System.out.println("Data Loaded.");	
 		}
-		else if(args[0].contains("?")) 
+		 if(args[0].contains("?")) 
 		{
 			System.out.println("Loading data ...");			
 			try {
@@ -70,6 +70,10 @@ public class StudentList {
 			System.out.println("Data Loaded.");				
 		}
 		else if(args[0].contains("c")) 
+		if (args.length != 1)
+		{
+			System.out.println("please enter valid Argument");
+		}
 		{
 			System.out.println("Loading data ...");			
 			try {
@@ -83,8 +87,14 @@ public class StudentList {
 
 				if(c ==' ') 
 				{
-					if (!in_word) {	count++; in_word =true;	}
-					else { in_word=false;}			
+					if (!in_word)
+					 {	count++; 
+						in_word =true;
+					}
+					else 
+					{ 
+						in_word=false;
+					}			
 				}
 			}
 			System.out.println(count +" word(s) found " + a.length);
